@@ -1,3 +1,14 @@
 apiVersion: v1
-entries: {}
-generated: "2022-03-28T15:10:57.483737046Z"
+entries:
+  jiralert:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-03-28T15:21:39.278807067Z"
+    description: A Helm chart for Kubernetes
+    digest: 5885a5544fedd4fe4894a457990c76eb520541b945a3128f3ac37a5d0d7618ab
+    name: jiralert
+    type: application
+    urls:
+    - https://github.com/martinlillemets/helmcharts/releases/download/jiralert-0.1.0/jiralert-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-03-28T15:21:39.278818072Z"
