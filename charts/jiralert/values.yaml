@@ -3,7 +3,7 @@ app: jiralert
 
 deployment:
   containerName: jiralert
-  image: martinlillemetscb/jiralert-linux-amd64:latest
+  image: martinlillemetscb/jiralert-linux-amd64:1.1.2
   args:
     - "--config=/jiralert-config/jiralert.yml"
     - "--log.level=debug"
@@ -44,6 +44,15 @@ config:
   # Amount of time after being closed that an issue should be reopened, after which, a new issue is created.
   # Optional (default: always reopen)
   reopen_duration: 0h
+
+  # Optional global jql to find the parent ticket to assign tickets to
+  # This can be used if there is automation and parent tickets change (eq: every week new parent)
+  # This jql is fed into jira search api, for more info:
+  # https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-post
+  parent_jql: ""
+  # Optional, used in conjunction with parent_jql, if parent_jql finds issue, then created issue type is taken from this
+  # If this is not given or parent_jql returns empty, created issue type defaults to issue_type value
+  parent_subtask_type: Alert
 
   # Receiver definitions. At least one must be defined.
   # Receiver names must match the Alertmanager receiver names. Required.
