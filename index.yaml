@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   jiralert:
   - apiVersion: v2
+    appVersion: 1.1.2
+    created: "2022-04-06T13:50:02.997092709Z"
+    description: Adds Jira ticket creation functionality to alertmanager notifications
+    digest: 6d38fc99e7f85566bba9a4aa5c43e21d3da462d809eaa11ca06410f1e943d4c8
+    name: jiralert
+    type: application
+    urls:
+    - https://github.com/martinlillemets/helmcharts/releases/download/jiralert-0.2.3/jiralert-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2022-04-05T13:06:01.649247955Z"
     description: Adds Jira ticket creation functionality to alertmanager notifications
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://github.com/martinlillemets/helmcharts/releases/download/jiralert-0.1.0/jiralert-0.1.0.tgz
     version: 0.1.0
-generated: "2022-04-05T13:06:01.649264255Z"
+generated: "2022-04-06T13:50:02.997251012Z"
