@@ -3,7 +3,8 @@ app: jiralert
 
 deployment:
   containerName: jiralert
-  image: martinlillemetscb/jiralert-linux-amd64:1.1.2
+  replicas: 2
+  image: martinlillemetscb/jiralert-linux-amd64:1.1.3
   args:
     - "--config=/jiralert-config/jiralert.yml"
     - "--log.level=debug"
@@ -52,10 +53,12 @@ config:
   parent_jql: ""
   # Optional, used in conjunction with parent_jql, if parent_jql finds issue, then created issue type is taken from this
   # If this is not given or parent_jql returns empty, created issue type defaults to issue_type value
-  parent_subtask_type: Alert
+  parent_subtask_type: Sub-task
 
   # Receiver definitions. At least one must be defined.
   # Receiver names must match the Alertmanager receiver names. Required.
 #  receivers:
 #    - name: jira-al
 #      project: AL
+#      parent_jql: 'project = \"AL\" AND type = \"Duty Report\" ORDER BY created DESC'
+#      parent_subtask_type: "Alert"
