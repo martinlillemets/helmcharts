@@ -1,26 +1,32 @@
-name: jiralert
-app: jiralert
+image:
+  repository: martinlillemetscb/jiralert-linux-amd64
+  tag: 1.1.3
+  pullPolicy: IfNotPresent
+  # One or more secrets to be used when pulling images
+  imagePullSecrets: []
 
 deployment:
-  containerName: jiralert
   replicas: 2
-  image: martinlillemetscb/jiralert-linux-amd64:1.1.3
   args:
     - "--config=/jiralert-config/jiralert.yml"
     - "--log.level=debug"
     - "--listen-address=:9097"
     - "--hash-jira-label"
-  volume:
-    name: jiralert-config
-    readOnly: true
+  volumeName: jiralert-config
 service:
-  app: jiralert-service
   type: ClusterIP
-  port: 9097
-  targetPort: 9097
   nodeport: 30097
-secret:
-  name: jiralert-config
+secretName: jiralert-config
+
+resources:
+  limits:
+    cpu: 250m
+    memory: 250Mi
+  requests:
+    cpu: 250m
+    memory: 250Mi
+
+# This contains configuration that is used to create jiralert config file
 config:
   # Global defaults, applied to all receivers where not explicitly overridden.
   template: jiralert.tmpl
